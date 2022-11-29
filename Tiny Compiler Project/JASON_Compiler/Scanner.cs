@@ -95,7 +95,7 @@ namespace Tiny_Compiler
                     FindTokenClass(CurrentLexeme);
                 }
 
-                // ------------------------------- Number -------------------------------// 
+                // ------------------------------- NUMBER -------------------------------// 
                 else if ((CurrentChar >= '0' && CurrentChar <= '9'))
                 {
                     // get real numbers  
@@ -133,8 +133,8 @@ namespace Tiny_Compiler
                     }
                     i = j + 1;
                 }
-
-                //------------------------------- Boolean_Operator [&&] -------------------------------//
+                
+                //------------------------------- BOOLEAN_OPERATOR [&&] -------------------------------//
                 else if (CurrentChar=='&')
                 {
                     bool ok = true; 
@@ -152,7 +152,7 @@ namespace Tiny_Compiler
                     }
                 }
 
-                //-------------------------------Boolean_Operator[||]-------------------------------//
+                //------------------------------- BOOLEAN_OPERATOR[:=] --------------------------------------//
                 else if (CurrentChar == '|')
                 {
                     bool ok = true;
@@ -170,7 +170,7 @@ namespace Tiny_Compiler
                     }
                 }
 
-                // get assignment_Operator [:=] lexeme 
+                //------------------------------- ASSIGNMENT_OPERATOR [:=] --------------------------------------//
                 else if (CurrentChar==':')
                 {
                     bool ok = true;
@@ -187,6 +187,7 @@ namespace Tiny_Compiler
                         i = j;
                     }
                 }
+                //------------------------------- ERROR, ARITHMATIC_OPERATOR, CONDITION_OPERATOR -------------------------------//
                 else
                 {
                     // check for [Error, Arithmatic_Operator, Condition_Operator ]
@@ -195,6 +196,8 @@ namespace Tiny_Compiler
             }
             Tiny_Compiler.TokenStream = Tokens;
         }
+
+
         void FindTokenClass(string Lex)
         {
 
