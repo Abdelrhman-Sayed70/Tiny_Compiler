@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 public enum Token_Class
 {
     Main , Int, Float, String, Read, Write, Repeat, Until, If, Elseif, Else, Then, Return, Endl,
-    Colon, And, Or, Dot, Semicolon, Comma, LParanthesis, RParanthesis, AssignmentOp, ConditionEqualOp, LessThanOp, GreaterThanOp,
+    Colon, And, Or, Dot, Semicolon, Comma, LParanthesis, RParanthesis, AssignmentOp, NotEqualOp ,ConditionEqualOp, LessThanOp, GreaterThanOp,
     PlusOp, MinusOp, MultiplyOp, DivideOp, Idenifier , IntNumber , FloatNumber , Number , LPracket , RPracket
 }
 namespace Tiny_Compiler
@@ -56,6 +56,7 @@ namespace Tiny_Compiler
             Operators.Add(":=", Token_Class.AssignmentOp);
             Operators.Add("<", Token_Class.LessThanOp);
             Operators.Add(">", Token_Class.GreaterThanOp);
+            Operators.Add("<>", Token_Class.NotEqualOp);
             Operators.Add(":", Token_Class.Colon);
             Operators.Add("&&", Token_Class.And);
             Operators.Add("||", Token_Class.Or);
@@ -190,6 +191,49 @@ namespace Tiny_Compiler
                         FindTokenClass(CurrentLexeme);
                         i = j;
                     }
+                }
+
+                //------------------------------- CONDITION_OPERATORS [<> <=] -------------------------------//
+                else if (CurrentChar == '<')
+                {
+                    bool ok = true;
+                    j++;
+                    if (j == SourceCode.Length) { FindTokenClass(CurrentLexeme); i = j; ok = false; }
+                    if (ok)
+                    {
+                        CurrentChar = SourceCode[j];
+                        if (CurrentChar == '=')
+                        {
+                            CurrentLexeme += CurrentChar.ToString();
+                        }
+                        else if (CurrentChar == '>')
+                        {
+                            CurrentLexeme += CurrentChar.ToString();
+                        }
+                        FindTokenClass(CurrentLexeme);
+                        i = j;
+                    }
+                }
+
+                //------------------------------- . ----------------------------//
+                else if (CurrentChar=='.')
+                {
+                    while (true)
+                    {
+                        j++;
+                        if (j == SourceCode.Length) { i = j; break; }
+
+                        CurrentChar = SourceCode[j];
+                        if ((CurrentChar >= '0' && CurrentChar <= '9'))
+                        {
+                            CurrentLexeme += CurrentChar.ToString();
+                        }
+                        else
+                        {
+                            i = j - 1; break;
+                        }
+                    }
+                    FindTokenClass(CurrentLexeme);
                 }
 
                 //------------------------------- ASSIGNMENT_OPERATOR [:=] --------------------------------------//
