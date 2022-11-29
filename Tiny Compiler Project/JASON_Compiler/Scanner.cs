@@ -77,7 +77,7 @@ namespace Tiny_Compiler
                 if (CurrentChar == ' ' || CurrentChar == '\r' || CurrentChar == '\n') { continue; }
 
                 //------------------------------- IDENTIFIER & RESERVED -------------------------------//
-                if (CurrentChar >= 'A' && CurrentChar <= 'z') 
+                if (CurrentChar >= 'A' && CurrentChar <= 'z')
                 {
                     while (true)
                     {
@@ -85,11 +85,13 @@ namespace Tiny_Compiler
                         if (j == SourceCode.Length) { i = j; break; }
 
                         CurrentChar = SourceCode[j];
-                        if ((CurrentChar>='A' && CurrentChar<='z') || (CurrentChar >='0' && CurrentChar<='9'))
+                        if ((CurrentChar >= 'A' && CurrentChar <= 'z') || (CurrentChar >= '0' && CurrentChar <= '9'))
+                        {
                             CurrentLexeme += CurrentChar.ToString();
+                        }
                         else
-                        { 
-                            i = j - 1; break; 
+                        {
+                            i = j - 1; break;
                         }
                     }
                     FindTokenClass(CurrentLexeme);
@@ -98,16 +100,15 @@ namespace Tiny_Compiler
                 // ------------------------------- NUMBER -------------------------------// 
                 else if ((CurrentChar >= '0' && CurrentChar <= '9'))
                 {
-                    // get real numbers  
                     while (true)
-                    {   
+                    {
                         j++;
                         if (j == SourceCode.Length) { i = j; break; }
                         CurrentChar = SourceCode[j];
 
-                        if (CurrentChar==' '|| CurrentChar =='+' || CurrentChar ==':' ||CurrentChar=='='||
-                            CurrentChar == '>' || CurrentChar =='<' || CurrentChar=='*'||CurrentChar=='-'||
-                            CurrentChar=='/' || CurrentChar == ';' || CurrentChar == ')' || CurrentChar == ',')
+                        if (CurrentChar == ' ' || CurrentChar == '+' || CurrentChar == ':' || CurrentChar == '=' ||
+                            CurrentChar == '>' || CurrentChar == '<' || CurrentChar == '*' || CurrentChar == '-' ||
+                            CurrentChar == '/' || CurrentChar == ';' || CurrentChar == ')' || CurrentChar == ','|| CurrentChar == '\n' || CurrentChar == '\r')
                         {
                             i = j - 1; break;
                         }
@@ -117,7 +118,7 @@ namespace Tiny_Compiler
                 }
 
                 //------------------------------- COMMENT -------------------------------//
-                else if (CurrentChar == '/' && j+1<SourceCode.Length &&SourceCode[j + 1] == '*')
+                else if (CurrentChar == '/' && j + 1 < SourceCode.Length && SourceCode[j + 1] == '*')
                 {
                     while ((CurrentChar != '*' || SourceCode[j + 1] != '/'))
                     {
@@ -133,11 +134,32 @@ namespace Tiny_Compiler
                     }
                     i = j + 1;
                 }
-                
-                //------------------------------- BOOLEAN_OPERATOR [&&] -------------------------------//
-                else if (CurrentChar=='&')
+
+                //------------------------------- STRING -------------------------------//
+                else if (CurrentChar == '\"')
                 {
-                    bool ok = true; 
+                    // String
+                    j++;
+                    CurrentChar = SourceCode[j];
+                    CurrentLexeme += CurrentChar.ToString();
+                    while (CurrentChar != '\"')
+                    {
+                        if (j == SourceCode.Length - 1)
+                        {
+                            FindTokenClass(CurrentLexeme);
+                            break;
+                        }
+                        j++;
+                        CurrentChar = SourceCode[j];
+                        CurrentLexeme += CurrentChar.ToString();
+                    }
+                    i = j;
+                }
+
+                //------------------------------- BOOLEAN_OPERATOR [&&] -------------------------------//
+                else if (CurrentChar == '&')
+                {
+                    bool ok = true;
                     j++;
                     if (j == SourceCode.Length) { FindTokenClass(CurrentLexeme); ; i = j; ok = false; }
                     if (ok)
@@ -171,7 +193,7 @@ namespace Tiny_Compiler
                 }
 
                 //------------------------------- ASSIGNMENT_OPERATOR [:=] --------------------------------------//
-                else if (CurrentChar==':')
+                else if (CurrentChar == ':')
                 {
                     bool ok = true;
                     j++;
@@ -193,6 +215,7 @@ namespace Tiny_Compiler
                     // check for [Error, Arithmatic_Operator, Condition_Operator ]
                     FindTokenClass(CurrentLexeme);
                 }
+
             }
             Tiny_Compiler.TokenStream = Tokens;
         }
@@ -227,6 +250,14 @@ namespace Tiny_Compiler
                 Tokens.Add(Tok);
             }
 
+            // Is it a Number?
+            else if (isNumber(Lex))
+            {
+                // Search in REGEX
+                Tok.token_type = Token_Class.Number;
+                Tokens.Add(Tok);
+            }
+
             // Is it an Int Number?
             else if (isInt(Lex))
             {
@@ -241,13 +272,7 @@ namespace Tiny_Compiler
                 Tokens.Add(Tok);
             }
 
-            // Is it a Number?
-            else if (isNumber(Lex))
-            {
-                // Search in REGEX
-                Tok.token_type = Token_Class.Number;
-                Tokens.Add(Tok);
-            }
+           
 
             // Is it an undefined?
             else
