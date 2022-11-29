@@ -9,7 +9,7 @@ public enum Token_Class
 {
     Main , Int, Float, String, Read, Write, Repeat, Until, If, Elseif, Else, Then, Return, Endl,
     Colon, And, Or, Dot, Semicolon, Comma, LParanthesis, RParanthesis, AssignmentOp, ConditionEqualOp, LessThanOp, GreaterThanOp,
-    PlusOp, MinusOp, MultiplyOp, DivideOp, Idenifier , Number , LPracket , RPracket
+    PlusOp, MinusOp, MultiplyOp, DivideOp, Idenifier , IntNumber , FloatNumber , Number , LPracket , RPracket
 }
 namespace Tiny_Compiler
 {
@@ -76,7 +76,7 @@ namespace Tiny_Compiler
 
                 if (CurrentChar == ' ' || CurrentChar == '\r' || CurrentChar == '\n') { continue; }
 
-                // get [ Identifier | Reserved ] lexeme 
+                //------------------------------- IDENTIFIER & RESERVED -------------------------------//
                 if (CurrentChar >= 'A' && CurrentChar <= 'z') 
                 {
                     while (true)
@@ -93,10 +93,9 @@ namespace Tiny_Compiler
                         }
                     }
                     FindTokenClass(CurrentLexeme);
-                    // determine if the lexeme is id or reserved word or error 
                 }
 
-                // get [Number] lexeme 
+                // ------------------------------- Number -------------------------------// 
                 else if ((CurrentChar >= '0' && CurrentChar <= '9'))
                 {
                     // get real numbers  
@@ -117,7 +116,7 @@ namespace Tiny_Compiler
                     FindTokenClass(CurrentLexeme);
                 }
 
-                // get [Comment] lexeme
+                //------------------------------- COMMENT -------------------------------//
                 else if (CurrentChar == '/' && j+1<SourceCode.Length &&SourceCode[j + 1] == '*')
                 {
                     while ((CurrentChar != '*' || SourceCode[j + 1] != '/'))
@@ -135,7 +134,7 @@ namespace Tiny_Compiler
                     i = j + 1;
                 }
 
-                // get Boolean_Operator [&&] lexeme
+                //------------------------------- Boolean_Operator [&&] -------------------------------//
                 else if (CurrentChar=='&')
                 {
                     bool ok = true; 
@@ -153,7 +152,7 @@ namespace Tiny_Compiler
                     }
                 }
 
-                // get Boolean_Operator [||] lexeme
+                //-------------------------------Boolean_Operator[||]-------------------------------//
                 else if (CurrentChar == '|')
                 {
                     bool ok = true;
@@ -190,7 +189,7 @@ namespace Tiny_Compiler
                 }
                 else
                 {
-                    // check for [Error, Arithmatic_Operator, Condition_Operator, ]
+                    // check for [Error, Arithmatic_Operator, Condition_Operator ]
                     FindTokenClass(CurrentLexeme);
                 }
             }
@@ -225,6 +224,20 @@ namespace Tiny_Compiler
                 Tokens.Add(Tok);
             }
 
+            // Is it an Int Number?
+            else if (isInt(Lex))
+            {
+                Tok.token_type = Token_Class.IntNumber;
+                Tokens.Add(Tok);
+            }
+
+            // Is it a Float Number?
+            else if (isFloat(Lex))
+            {
+                Tok.token_type = Token_Class.FloatNumber;
+                Tokens.Add(Tok);
+            }
+
             // Is it a Number?
             else if (isNumber(Lex))
             {
@@ -251,6 +264,20 @@ namespace Tiny_Compiler
         {
             var regexNumber = new Regex(@"^[0-9]+(\.[0-9]+)?$", RegexOptions.Compiled);
             bool isValid = regexNumber.IsMatch(lex);
+            return isValid;
+        }
+
+        bool isInt(string lex)
+        {
+            var regexInt = new Regex(@"^[0-9]+$", RegexOptions.Compiled);
+            bool isValid = regexInt.IsMatch(lex);
+            return isValid;
+        }
+
+        bool isFloat(string lex)
+        {
+            var regexFloat = new Regex(@"^[0-9]+(\.[0-9]+)$", RegexOptions.Compiled);
+            bool isValid = regexFloat.IsMatch(lex);
             return isValid;
         }
     }
