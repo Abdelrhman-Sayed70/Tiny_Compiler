@@ -1,0 +1,22 @@
+C:\Users\Lime5\Desktop\Tiny Compiler Project\JASON_Compiler\obj\Debug\Tiny_Compiler.csproj.AssemblyReference.cache
+C:\Users\Lime5\Desktop\Tiny Compiler Project\JASON_Compiler\obj\Debug\Tiny_Compiler.Form1.resources
+C:\Users\Lime5\Desktop\Tiny Compiler Project\JASON_Compiler\obj\Debug\JASON_Compiler.Form2.resources
+C:\Users\Lime5\Desktop\Tiny Compiler Project\JASON_Compiler\obj\Debug\JASON_Compiler.Properties.Resources.resources
+C:\Users\Lime5\Desktop\Tiny Compiler Project\JASON_Compiler\obj\Debug\Tiny_Compiler.csproj.GenerateResource.cache
+C:\Users\Lime5\Desktop\Tiny Compiler Project\JASON_Compiler\obj\Debug\Tiny_Compiler.csproj.CoreCompileInputs.cache
+C:\Users\Lime5\Desktop\Tiny Compiler Project\JASON_Compiler\obj\Debug\JASON_Compiler.exe
+C:\Users\Lime5\Desktop\Tiny Compiler Project\JASON_Compiler\obj\Debug\JASON_Compiler.pdb
+C:\Users\Lime5\Desktop\Tiny Compiler Project\JASON_Compiler\bin\Debug\JASON_Compiler.exe.config
+C:\Users\Lime5\Desktop\Tiny Compiler Project\JASON_Compiler\bin\Debug\JASON_Compiler.exe
+C:\Users\Lime5\Desktop\Tiny Compiler Project\JASON_Compiler\bin\Debug\JASON_Compiler.pdb
+D:\Projects Hosted on Git hup\compiler_theory_project\Tiny Compiler Project\JASON_Compiler\bin\Debug\JASON_Compiler.exe.config
+D:\Projects Hosted on Git hup\compiler_theory_project\Tiny Compiler Project\JASON_Compiler\bin\Debug\JASON_Compiler.exe
+D:\Projects Hosted on Git hup\compiler_theory_project\Tiny Compiler Project\JASON_Compiler\bin\Debug\JASON_Compiler.pdb
+D:\Projects Hosted on Git hup\compiler_theory_project\Tiny Compiler Project\JASON_Compiler\obj\Debug\Tiny_Compiler.Form1.resources
+D:\Projects Hosted on Git hup\compiler_theory_project\Tiny Compiler Project\JASON_Compiler\obj\Debug\JASON_Compiler.Form2.resources
+D:\Projects Hosted on Git hup\compiler_theory_project\Tiny Compiler Project\JASON_Compiler\obj\Debug\JASON_Compiler.Properties.Resources.resources
+D:\Projects Hosted on Git hup\compiler_theory_project\Tiny Compiler Project\JASON_Compiler\obj\Debug\Tiny_Compiler.csproj.GenerateResource.cache
+D:\Projects Hosted on Git hup\compiler_theory_project\Tiny Compiler Project\JASON_Compiler\obj\Debug\Tiny_Compiler.csproj.CoreCompileInputs.cache
+D:\Projects Hosted on Git hup\compiler_theory_project\Tiny Compiler Project\JASON_Compiler\obj\Debug\JASON_Compiler.exe
+D:\Projects Hosted on Git hup\compiler_theory_project\Tiny Compiler Project\JASON_Compiler\obj\Debug\JASON_Compiler.pdb
+D:\Projects Hosted on Git hup\compiler_theory_project\Tiny Compiler Project\JASON_Compiler\obj\Debug\Tiny_Compiler.csproj.AssemblyReference.cache
