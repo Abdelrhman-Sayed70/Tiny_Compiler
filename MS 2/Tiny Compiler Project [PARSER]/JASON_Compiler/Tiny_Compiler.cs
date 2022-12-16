@@ -18,8 +18,8 @@ namespace Tiny_Compiler
             //Scanner
             Tiny_Scanner.StartScanning(SourceCode);
             //Parser
-            // Tiny_Parser.StartParsing(TokenStream);
-            // treeroot = Tiny_Parser.root;
+            Tiny_Parser.StartParsing(TokenStream);
+            treeroot = Tiny_Parser.root;
         } 
     }
 }

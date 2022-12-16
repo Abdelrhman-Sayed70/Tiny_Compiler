@@ -122,7 +122,7 @@
             this.button2.Location = new System.Drawing.Point(188, 537);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(124, 55);
+            this.button2.Size = new System.Drawing.Size(135, 55);
             this.button2.TabIndex = 5;
             this.button2.Text = "Clear All";
             this.button2.UseVisualStyleBackColor = false;
