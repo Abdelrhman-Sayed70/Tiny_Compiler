@@ -27,43 +27,66 @@ namespace Tiny_Compiler
         {
             this.InputPointer = 0;
             this.TokenStream = TokenStream;
-            root = new Node("Program");
+            // starting sympol
+            root = new Node("Program"); 
             root.Children.Add(Program());
             return root;
         }
+
+        // ================================================================================================================
+        // Implement your production rules here.
+        /*
+            RULES :
+            - start with starting symbol.
+            - create node function for each non terminal [Procedure].
+            - for each procedure implement its R.H.S.
+            - if you find terminal with small letter [Token] then add match function. 
+            - else if you find NON terminal with capital lette [Procedure] then add this function.
+            - in case of the function contains or then check for prefix of each segement using if statement.
+                    if (TokenStream[InputPointer].token_type == Token_Class.)
+            - in case of epslon return null.
+
+            RULES for clean code : 
+            - each node start with capital letter. 
+                Node Program(){}
+            - the created object inside node start with small letter and the passed name is the same as node function name.
+                Node program = new Node("Program");
+        */
+
         Node Program()
         {
+            // Program → Function_statements Main_function
             Node program = new Node("Program");
-            program.Children.Add(Header());
-            program.Children.Add(DeclSec());
-            program.Children.Add(Block());
-            program.Children.Add(match(Token_Class.Dot));
-            // MessageBox.Show("Success");
+            
+            program.Children.Add(Function_statements());
+            program.Children.Add(Main_function());
+
             return program;
         }
         
-        Node Header()
+        Node Function_statements()
         {
-            Node header = new Node("Header");
-            // write your code here to check the header sructure
-            return header;
-        }
-        Node DeclSec()
-        {
-            Node declsec = new Node("DeclSec");
-            // write your code here to check atleast the declare sturcure 
-            // without adding procedures
-            return declsec;
-        }
-        Node Block()
-        {
-            Node block = new Node("block");
-            // write your code here to match statements
-            return block;
+            // Function_statements → Function_statement Function_statementsDash
+            Node function_statements = new Node("Function_statements");
+
+            // implement the function 
+
+
+            return function_statements;
         }
 
-        // Implement your logic here
+        Node Main_function()
+        {
+            // Main_function → Datatype main() Function_body
+            Node main_function = new Node("Main_function");
 
+            // implement the function
+            
+            return main_function;
+        }
+
+        // ================================================================================================================
+        // match : deal with tokens 
         public Node match(Token_Class ExpectedToken)
         {
 
@@ -97,6 +120,8 @@ namespace Tiny_Compiler
             }
         }
 
+        // ================================================================================================================
+        // Print Parse Tree
         public static TreeNode PrintParseTree(Node root)
         {
             TreeNode tree = new TreeNode("Parse Tree");
