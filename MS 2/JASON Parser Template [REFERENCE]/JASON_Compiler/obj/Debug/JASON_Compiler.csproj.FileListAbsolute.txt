@@ -50,3 +50,14 @@ G:\college\2021-2022\First Term\Compilers\Labs\Lab7-Last Version\Parser-Template
 G:\college\2021-2022\First Term\Compilers\Labs\Lab7-Last Version\Parser-Template - Studs Versions\JASON_Compiler\obj\Debug\JASON_Compiler.csproj.CoreCompileInputs.cache
 G:\college\2021-2022\First Term\Compilers\Labs\Lab7-Last Version\Parser-Template - Studs Versions\JASON_Compiler\obj\Debug\JASON_Compiler.exe
 G:\college\2021-2022\First Term\Compilers\Labs\Lab7-Last Version\Parser-Template - Studs Versions\JASON_Compiler\obj\Debug\JASON_Compiler.pdb
+D:\Abdo gaber\Fifth_term\Compiler\Labs\Lab 8\Parser-Template - Studs Versions\JASON_Compiler\bin\Debug\JASON_Compiler.exe.config
+D:\Abdo gaber\Fifth_term\Compiler\Labs\Lab 8\Parser-Template - Studs Versions\JASON_Compiler\bin\Debug\JASON_Compiler.exe
+D:\Abdo gaber\Fifth_term\Compiler\Labs\Lab 8\Parser-Template - Studs Versions\JASON_Compiler\bin\Debug\JASON_Compiler.pdb
+D:\Abdo gaber\Fifth_term\Compiler\Labs\Lab 8\Parser-Template - Studs Versions\JASON_Compiler\obj\Debug\JASON_Compiler.csproj.AssemblyReference.cache
+D:\Abdo gaber\Fifth_term\Compiler\Labs\Lab 8\Parser-Template - Studs Versions\JASON_Compiler\obj\Debug\JASON_Compiler.Form1.resources
+D:\Abdo gaber\Fifth_term\Compiler\Labs\Lab 8\Parser-Template - Studs Versions\JASON_Compiler\obj\Debug\JASON_Compiler.Form2.resources
+D:\Abdo gaber\Fifth_term\Compiler\Labs\Lab 8\Parser-Template - Studs Versions\JASON_Compiler\obj\Debug\JASON_Compiler.Properties.Resources.resources
+D:\Abdo gaber\Fifth_term\Compiler\Labs\Lab 8\Parser-Template - Studs Versions\JASON_Compiler\obj\Debug\JASON_Compiler.csproj.GenerateResource.cache
+D:\Abdo gaber\Fifth_term\Compiler\Labs\Lab 8\Parser-Template - Studs Versions\JASON_Compiler\obj\Debug\JASON_Compiler.csproj.CoreCompileInputs.cache
+D:\Abdo gaber\Fifth_term\Compiler\Labs\Lab 8\Parser-Template - Studs Versions\JASON_Compiler\obj\Debug\JASON_Compiler.exe
+D:\Abdo gaber\Fifth_term\Compiler\Labs\Lab 8\Parser-Template - Studs Versions\JASON_Compiler\obj\Debug\JASON_Compiler.pdb
