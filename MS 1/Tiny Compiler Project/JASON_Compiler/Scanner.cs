@@ -57,7 +57,6 @@ namespace Tiny_Compiler
             Operators.Add("<", Token_Class.LessThanOp);
             Operators.Add(">", Token_Class.GreaterThanOp);
             Operators.Add("<>", Token_Class.NotEqualOp);
-            Operators.Add(":", Token_Class.Colon);
             Operators.Add("&&", Token_Class.And);
             Operators.Add("||", Token_Class.Or);
             Operators.Add("+", Token_Class.PlusOp);
