@@ -23,7 +23,7 @@ namespace Tiny_Compiler
             string Code=textBox1.Text.ToLower();
             Tiny_Compiler.Start_Compiling(Code);
             PrintTokens();
-            treeView1.Nodes.Add(Parser.PrintParseTree(Tiny_Compiler.treeroot));
+            //treeView1.Nodes.Add(Parser.PrintParseTree(Tiny_Compiler.treeroot));
             PrintErrors();
         }
         void PrintTokens()
@@ -57,6 +57,11 @@ namespace Tiny_Compiler
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }

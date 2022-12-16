@@ -61,3 +61,14 @@ D:\Projects Hosted on Git hup\Compiler_Project\MS 2\TINY\Tiny Compiler Project [
 D:\Projects Hosted on Git hup\Compiler_Project\MS 2\TINY\Tiny Compiler Project [PARSER]\JASON_Compiler\obj\Debug\JASON_Compiler.csproj.CoreCompileInputs.cache
 D:\Projects Hosted on Git hup\Compiler_Project\MS 2\TINY\Tiny Compiler Project [PARSER]\JASON_Compiler\obj\Debug\JASON_Compiler.exe
 D:\Projects Hosted on Git hup\Compiler_Project\MS 2\TINY\Tiny Compiler Project [PARSER]\JASON_Compiler\obj\Debug\JASON_Compiler.pdb
+D:\Projects Hosted on Git hup\Compiler_Project\MS 2\Tiny Compiler Project [PARSER]\JASON_Compiler\bin\Debug\JASON_Compiler.exe.config
+D:\Projects Hosted on Git hup\Compiler_Project\MS 2\Tiny Compiler Project [PARSER]\JASON_Compiler\bin\Debug\JASON_Compiler.exe
+D:\Projects Hosted on Git hup\Compiler_Project\MS 2\Tiny Compiler Project [PARSER]\JASON_Compiler\bin\Debug\JASON_Compiler.pdb
+D:\Projects Hosted on Git hup\Compiler_Project\MS 2\Tiny Compiler Project [PARSER]\JASON_Compiler\obj\Debug\JASON_Compiler.csproj.AssemblyReference.cache
+D:\Projects Hosted on Git hup\Compiler_Project\MS 2\Tiny Compiler Project [PARSER]\JASON_Compiler\obj\Debug\Tiny_Compiler.Form1.resources
+D:\Projects Hosted on Git hup\Compiler_Project\MS 2\Tiny Compiler Project [PARSER]\JASON_Compiler\obj\Debug\JASON_Compiler.Form2.resources
+D:\Projects Hosted on Git hup\Compiler_Project\MS 2\Tiny Compiler Project [PARSER]\JASON_Compiler\obj\Debug\JASON_Compiler.Properties.Resources.resources
+D:\Projects Hosted on Git hup\Compiler_Project\MS 2\Tiny Compiler Project [PARSER]\JASON_Compiler\obj\Debug\JASON_Compiler.csproj.GenerateResource.cache
+D:\Projects Hosted on Git hup\Compiler_Project\MS 2\Tiny Compiler Project [PARSER]\JASON_Compiler\obj\Debug\JASON_Compiler.csproj.CoreCompileInputs.cache
+D:\Projects Hosted on Git hup\Compiler_Project\MS 2\Tiny Compiler Project [PARSER]\JASON_Compiler\obj\Debug\JASON_Compiler.exe
+D:\Projects Hosted on Git hup\Compiler_Project\MS 2\Tiny Compiler Project [PARSER]\JASON_Compiler\obj\Debug\JASON_Compiler.pdb
