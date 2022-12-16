@@ -1,0 +1,18 @@
+program xyz ;
+declare
+integer x,y;
+real z;
+begin
+set x=10;
+set y=5;
+write y;
+write endl;
+set x= y;
+if x<y then
+set x=10;
+endif;
+write x;
+set x=x-1;
+write endl;
+write x;
+end.
