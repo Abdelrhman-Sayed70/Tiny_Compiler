@@ -28,14 +28,17 @@ namespace JASON_Compiler
             this.InputPointer = 0;
             this.TokenStream = TokenStream; // implemented in phase 1 
             root = new Node("Program");
-            root.Children.Add(Program()); // Parse tree of program 
+            root.Children.Add(Program()); // starting production rule
             return root;
         }
         // for each procedure add its mo3adla 
+        // terminal [tokens] -> Add(mathc(token)) 
+        // non terminal [procedure] -> Add(function)
+        // or -> check of the prefix of each statement using if statement using TokenStream[InputPointer]
+        // in case of epslon return null 
         Node Program()
         {
-            
-            Node program = new Node("Program");
+            Node program = new Node("Program"); // name shown in parse tree 
             // right hand side  
             program.Children.Add(Header());
             program.Children.Add(DeclSec());
@@ -115,7 +118,7 @@ namespace JASON_Compiler
                 state.Children.Add(State());
                 return state;
             }
-            return null; 
+            return null; // epsilon 
         }
 
         Node Expression()
