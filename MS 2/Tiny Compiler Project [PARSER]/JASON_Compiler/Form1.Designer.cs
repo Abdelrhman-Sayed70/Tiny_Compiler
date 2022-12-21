@@ -50,13 +50,13 @@
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(471, 480);
+            this.textBox1.Size = new System.Drawing.Size(381, 480);
             this.textBox1.TabIndex = 0;
             // 
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(504, 410);
+            this.textBox2.Location = new System.Drawing.Point(416, 410);
             this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
@@ -83,7 +83,7 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2});
-            this.dataGridView1.Location = new System.Drawing.Point(504, 51);
+            this.dataGridView1.Location = new System.Drawing.Point(416, 51);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
@@ -108,10 +108,10 @@
             // 
             // treeView1
             // 
-            this.treeView1.Location = new System.Drawing.Point(919, 49);
+            this.treeView1.Location = new System.Drawing.Point(834, 51);
             this.treeView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(315, 313);
+            this.treeView1.Size = new System.Drawing.Size(408, 311);
             this.treeView1.TabIndex = 4;
             // 
             // button2
@@ -143,7 +143,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(914, 22);
+            this.label2.Location = new System.Drawing.Point(829, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(119, 25);
             this.label2.TabIndex = 6;
@@ -154,7 +154,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(499, 22);
+            this.label3.Location = new System.Drawing.Point(411, 22);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(187, 25);
             this.label3.TabIndex = 6;
@@ -165,7 +165,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(499, 383);
+            this.label4.Location = new System.Drawing.Point(411, 383);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 25);
             this.label4.TabIndex = 6;
