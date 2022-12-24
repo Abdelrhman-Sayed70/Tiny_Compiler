@@ -133,11 +133,6 @@ namespace Tiny_Compiler
         }
 
 
-
-  
-
-
-
         Node Main_function()
         {
             // completed

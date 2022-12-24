@@ -296,6 +296,14 @@ namespace Tiny_Compiler
             }
 
 
+            // Is it a Number?
+            else if (isNumber(Lex))
+            {
+                // Search in REGEX
+                Tok.token_type = Token_Class.Number;
+                Tokens.Add(Tok);
+            }
+
 
             // Is it an Int Number?
             else if (isInt(Lex))
@@ -311,13 +319,7 @@ namespace Tiny_Compiler
                 Tokens.Add(Tok);
             }
 
-            // Is it a Number?
-            else if (isNumber(Lex))
-            {
-                // Search in REGEX
-                Tok.token_type = Token_Class.Number;
-                Tokens.Add(Tok);
-            }
+         
 
             // Is it an undefined?
             else
