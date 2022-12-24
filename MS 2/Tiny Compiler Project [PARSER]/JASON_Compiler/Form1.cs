@@ -15,6 +15,9 @@ namespace Tiny_Compiler
         public Form1()
         {
             InitializeComponent();
+            dataGridView1.EnableHeadersVisualStyles = false;
+            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(209, 175, 112);
+            dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(36, 36, 36);
         }
 
         private void button1_Click(object sender, EventArgs e)

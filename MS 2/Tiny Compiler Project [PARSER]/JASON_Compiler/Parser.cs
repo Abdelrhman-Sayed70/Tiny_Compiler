@@ -175,6 +175,14 @@ namespace Tiny_Compiler
         {
             // Statement → Write_statement | Read_statement | Assignment_statement | Declaration_statement | If_statement |Repeat_statement | Function_call
             Node statement = new Node("Statement");
+            if(TokenStream[InputPointer].token_type == Token_Class.Write)
+            {
+                statement.Children.Add(Write_statement());
+            }
+            else if(TokenStream[InputPointer].token_type == Token_Class.Read)
+            {
+                statement.Children.Add(Read_statement());
+            }
 
             return statement;
         }
@@ -454,9 +462,98 @@ namespace Tiny_Compiler
 
 
         // ============================================== Nour start =======================================================
-    
-        
 
+
+        Node Assignment_statement()
+        {
+            // completed
+            // Assignment_statement → identifier assignmentOp Expression ;
+            Node assignment_statement = new Node("Assignment_statement");
+            assignment_statement.Children.Add(match(Token_Class.Idenifier));
+            assignment_statement.Children.Add(match(Token_Class.AssignmentOp));
+            assignment_statement.Children.Add(Expression());
+            assignment_statement.Children.Add(match(Token_Class.Semicolon));
+            return assignment_statement;
+        }
+
+        Node Declaration_statement()
+        {
+            // completed
+            // Declaration_statement → Datatype Identifier_list ;
+            Node declaration_statement = new Node("Declaration_statement");
+            declaration_statement.Children.Add(Datatype());
+            declaration_statement.Children.Add(Identifier_list());
+            declaration_statement.Children.Add(match(Token_Class.Semicolon));
+            return declaration_statement;
+        }
+
+        Node Else_statement()
+        {
+            // completed
+            // Else_statement → else Statements end | 𝜀
+            Node else_statement = new Node("Else_statement");
+            if(TokenStream[InputPointer].token_type == Token_Class.Else)
+            {
+                else_statement.Children.Add(match(Token_Class.Else));
+                else_statement.Children.Add(Statements());
+                else_statement.Children.Add(match(Token_Class.Endl));
+                return else_statement;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        Node Else_if_statement()
+        {
+            // completed
+            // Else_if_statement → elseif Condition_statement then Statements Ret_statement Else_statement end | �
+            Node else_if_statement = new Node("Else_if_statement");
+            if (TokenStream[InputPointer].token_type == Token_Class.Elseif)
+            {
+                else_if_statement.Children.Add(match(Token_Class.Elseif));
+                else_if_statement.Children.Add(Condition_statement());
+                else_if_statement.Children.Add(match(Token_Class.Then));
+                else_if_statement.Children.Add(Statements());
+                else_if_statement.Children.Add(Ret_statement());
+                else_if_statement.Children.Add(Else_statement());
+                else_if_statement.Children.Add(match(Token_Class.Endl));
+                return else_if_statement;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        Node If_statement()
+        {
+            // completed
+            // If_statement → if Condition_statement then Statements Ret_statement Else_if_statement Else_statement end
+            Node if_statement = new Node("If_statement");
+            if_statement.Children.Add(match(Token_Class.If));
+            if_statement.Children.Add(Condition_statement());
+            if_statement.Children.Add(match(Token_Class.Then));
+            if_statement.Children.Add(Statements());
+            if_statement.Children.Add(Ret_statement());
+            if_statement.Children.Add(Else_if_statement());
+            if_statement.Children.Add(Else_statement());
+            if_statement.Children.Add(match(Token_Class.Endl));
+            return if_statement;
+        }
+
+        Node Repeat_statement()
+        {
+            // completed
+            // Repeat_statement → repeat Statements until Condition_statement
+            Node repeat_statement = new Node("Repeat_statement");
+            repeat_statement.Children.Add(match(Token_Class.Repeat));
+            repeat_statement.Children.Add(Statements());
+            repeat_statement.Children.Add(match(Token_Class.Until));
+            repeat_statement.Children.Add(Condition_statement());
+            return repeat_statement;
+        }
 
         // ============================================== Nour end =======================================================
 
