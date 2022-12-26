@@ -124,7 +124,7 @@ namespace Tiny_Compiler
             function_declaration.Children.Add(Datatype());
             function_declaration.Children.Add(match(Token_Class.Idenifier));
             function_declaration.Children.Add(match(Token_Class.LParanthesis));
-            // function_declaration.Children.Add(Parameters());
+            function_declaration.Children.Add(Parameters());
             function_declaration.Children.Add(match(Token_Class.RParanthesis));
             return function_declaration;
         }
@@ -637,7 +637,7 @@ namespace Tiny_Compiler
             {
                 else_statement.Children.Add(match(Token_Class.Else));
                 else_statement.Children.Add(Statements());
-                else_statement.Children.Add(match(Token_Class.Endl));
+                else_statement.Children.Add(match(Token_Class.End));
                 return else_statement;
             }
             else
@@ -659,7 +659,7 @@ namespace Tiny_Compiler
                 else_if_statement.Children.Add(Statements());
                 else_if_statement.Children.Add(Ret_statement());
                 else_if_statement.Children.Add(Else_statement());
-                else_if_statement.Children.Add(match(Token_Class.Endl));
+                else_if_statement.Children.Add(match(Token_Class.End));
                 return else_if_statement;
             }
             else
@@ -680,7 +680,7 @@ namespace Tiny_Compiler
             if_statement.Children.Add(Ret_statement());
             if_statement.Children.Add(Else_if_statement());
             if_statement.Children.Add(Else_statement());
-            if_statement.Children.Add(match(Token_Class.Endl));
+            if_statement.Children.Add(match(Token_Class.End));
             return if_statement;
         }
 
@@ -698,6 +698,61 @@ namespace Tiny_Compiler
 
         // ============================================== Nour end =======================================================
 
+        // ============================================== Ruq start =======================================================
+        Node Parameter()
+        {
+            Node parameter = new Node("Parameter");
+            if(InputPointer < TokenStream.Count)
+            {
+                if (TokenStream[InputPointer].token_type == Token_Class.Int || TokenStream[InputPointer].token_type == Token_Class.Float || TokenStream[InputPointer].token_type == Token_Class.String)
+                {
+                    parameter.Children.Add(Datatype());
+                    parameter.Children.Add(match(Token_Class.Idenifier));
+                    return parameter;
+                }
+                else
+                    return null;
+            }
+            else
+            {
+                // to be handeld 
+                //Errors.Error_List.Add("Parsing Error: Expected "
+                        //+ ExpectedToken.ToString() + "\r\n");
+                //InputPointer++;
+                return null;
+            }
+
+        }
+        Node Parameter_Dash()
+        {
+            Node parameter_Dash = new Node("Parameter_Dash");
+            if (InputPointer < TokenStream.Count)
+            {
+                if (TokenStream[InputPointer].token_type == Token_Class.Comma)
+                {
+                    parameter_Dash.Children.Add(match(Token_Class.Comma));
+                    parameter_Dash.Children.Add(Parameter());
+                    parameter_Dash.Children.Add(Parameter_Dash());
+                }
+                return null;
+            }
+            else
+            {
+                // to be handeld 
+                //Errors.Error_List.Add("Parsing Error: Expected "
+                //+ ExpectedToken.ToString() + "\r\n");
+                //InputPointer++;
+                return null;
+            }
+        }
+        Node Parameters()
+        {
+            Node parameters = new Node("Parameters");
+            parameters.Children.Add(Parameter());
+            parameters.Children.Add(Parameter_Dash());
+            return parameters;
+        }
+        // ============================================== Ruq end =========================================================
         // ================================================================================================================
         // match : deal with tokens 
         public Node match(Token_Class ExpectedToken)
