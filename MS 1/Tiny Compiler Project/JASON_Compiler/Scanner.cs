@@ -9,7 +9,7 @@ public enum Token_Class
 {
     Main , Int, Float, String, Read, Write, Repeat, Until, If, Elseif, Else, Then, Return, Endl,
     Colon, And, Or, Dot, Semicolon, Comma, LParanthesis, RParanthesis, AssignmentOp, NotEqualOp ,ConditionEqualOp, LessThanOp, GreaterThanOp,
-    PlusOp, MinusOp, MultiplyOp, DivideOp, Idenifier , IntNumber , FloatNumber , Number , LPracket , RPracket
+    PlusOp, MinusOp, MultiplyOp, DivideOp, Idenifier , IntNumber , FloatNumber , Number , LPracket , RPracket, StringLine
 }
 namespace Tiny_Compiler
 {
@@ -156,6 +156,8 @@ namespace Tiny_Compiler
                         CurrentChar = SourceCode[j];
                         CurrentLexeme += CurrentChar.ToString();
                     }
+                    FindTokenClass(CurrentLexeme);
+
                     i = j;
                 }
 
@@ -319,6 +321,14 @@ namespace Tiny_Compiler
                 Tokens.Add(Tok);
             }
 
+
+            // Is it a String
+            else if (isString(Lex))
+            {
+                Tok.token_type = Token_Class.StringLine;
+                Tokens.Add(Tok);
+            }
+
             // Is it an undefined?
             else
             {
@@ -353,5 +363,17 @@ namespace Tiny_Compiler
             bool isValid = regexFloat.IsMatch(lex);
             return isValid;
         }
+
+
+
+        bool isString(string lex)
+        {
+            var regexString = new Regex("\"(^\")\"", RegexOptions.Compiled);
+            bool isValid = regexString.IsMatch(lex);
+            return isValid;
+
+        }
+
+
     }
 }
