@@ -534,11 +534,11 @@ namespace Tiny_Compiler
 
             if (TokenStream[InputPointer].token_type == Token_Class.LPracket)
             {
-                equ.Children.Add(match(Token_Class.LPracket));
+                equ.Children.Add(match(Token_Class.LParanthesis));
                 equ.Children.Add(Equ());
                 equ.Children.Add(AddOp());
                 equ.Children.Add(Equation());
-                equ.Children.Add(match(Token_Class.RPracket));
+                equ.Children.Add(match(Token_Class.RParanthesis));
                 equ.Children.Add(Equ_Dash());
 
             }
@@ -579,11 +579,11 @@ namespace Tiny_Compiler
 
             if (TokenStream[InputPointer].token_type == Token_Class.LPracket)
             {
-                equation.Children.Add(match(Token_Class.LPracket));
+                equation.Children.Add(match(Token_Class.LParanthesis));
                 equation.Children.Add(Equation());
                 equation.Children.Add(MultOp());
                 equation.Children.Add(Term());
-                equation.Children.Add(match(Token_Class.RPracket));
+                equation.Children.Add(match(Token_Class.RParanthesis));
                 equation.Children.Add(Equation_Dash());
 
             }
