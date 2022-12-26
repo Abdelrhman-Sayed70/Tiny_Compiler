@@ -106,3 +106,15 @@ C:\Users\hb\Compiler_Project\MS 2\Tiny Compiler Project [PARSER]\JASON_Compiler\
 C:\Users\hb\Compiler_Project\MS 2\Tiny Compiler Project [PARSER]\JASON_Compiler\obj\Debug\JASON_Compiler.csproj.CoreCompileInputs.cache
 C:\Users\hb\Compiler_Project\MS 2\Tiny Compiler Project [PARSER]\JASON_Compiler\obj\Debug\JASON_Compiler.exe
 C:\Users\hb\Compiler_Project\MS 2\Tiny Compiler Project [PARSER]\JASON_Compiler\obj\Debug\JASON_Compiler.pdb
+C:\Users\Haneen Ibrahim\Documents\GitHub\Compiler_Project\MS 2\Tiny Compiler Project [PARSER]\JASON_Compiler\bin\Debug\JASON_Compiler.exe.config
+C:\Users\Haneen Ibrahim\Documents\GitHub\Compiler_Project\MS 2\Tiny Compiler Project [PARSER]\JASON_Compiler\bin\Debug\JASON_Compiler.exe
+C:\Users\Haneen Ibrahim\Documents\GitHub\Compiler_Project\MS 2\Tiny Compiler Project [PARSER]\JASON_Compiler\bin\Debug\JASON_Compiler.pdb
+C:\Users\Haneen Ibrahim\Documents\GitHub\Compiler_Project\MS 2\Tiny Compiler Project [PARSER]\JASON_Compiler\obj\Debug\JASON_Compiler.csproj.AssemblyReference.cache
+C:\Users\Haneen Ibrahim\Documents\GitHub\Compiler_Project\MS 2\Tiny Compiler Project [PARSER]\JASON_Compiler\obj\Debug\JASON_Compiler.csproj.SuggestedBindingRedirects.cache
+C:\Users\Haneen Ibrahim\Documents\GitHub\Compiler_Project\MS 2\Tiny Compiler Project [PARSER]\JASON_Compiler\obj\Debug\Tiny_Compiler.Form1.resources
+C:\Users\Haneen Ibrahim\Documents\GitHub\Compiler_Project\MS 2\Tiny Compiler Project [PARSER]\JASON_Compiler\obj\Debug\JASON_Compiler.Form2.resources
+C:\Users\Haneen Ibrahim\Documents\GitHub\Compiler_Project\MS 2\Tiny Compiler Project [PARSER]\JASON_Compiler\obj\Debug\JASON_Compiler.Properties.Resources.resources
+C:\Users\Haneen Ibrahim\Documents\GitHub\Compiler_Project\MS 2\Tiny Compiler Project [PARSER]\JASON_Compiler\obj\Debug\JASON_Compiler.csproj.GenerateResource.cache
+C:\Users\Haneen Ibrahim\Documents\GitHub\Compiler_Project\MS 2\Tiny Compiler Project [PARSER]\JASON_Compiler\obj\Debug\JASON_Compiler.csproj.CoreCompileInputs.cache
+C:\Users\Haneen Ibrahim\Documents\GitHub\Compiler_Project\MS 2\Tiny Compiler Project [PARSER]\JASON_Compiler\obj\Debug\JASON_Compiler.exe
+C:\Users\Haneen Ibrahim\Documents\GitHub\Compiler_Project\MS 2\Tiny Compiler Project [PARSER]\JASON_Compiler\obj\Debug\JASON_Compiler.pdb
