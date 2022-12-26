@@ -19,11 +19,10 @@ namespace Tiny_Compiler
         }
     }
 
-    public class Flag
-    {
-        public static bool isStaement = true;
+   
+        
 
-    }
+    
 
     public class Parser
     {
@@ -40,6 +39,10 @@ namespace Tiny_Compiler
             root.Children.Add(Program());
             return root;
         }
+
+
+
+
 
         // ================================================================================================================
         // Implement your production rules here.
@@ -61,7 +64,57 @@ namespace Tiny_Compiler
                 Node program = new Node("Program");
         */
 
+
         // ============================================== Gaber start =======================================================
+
+
+
+
+        //=================================================Helper Functions begin================================================
+
+
+
+        public bool checkStatment()
+        {
+
+            Token_Class tmp = TokenStream[InputPointer].token_type;
+
+            if(tmp == Token_Class.Read || tmp == Token_Class.Write ||
+                tmp == Token_Class.AssignmentOp || tmp == Token_Class.Int ||
+                tmp == Token_Class.Float || tmp == Token_Class.String|| tmp == Token_Class.If || tmp == Token_Class.Repeat || tmp == Token_Class.LPracket)
+            {
+                return true;
+            }
+
+
+            return false;
+        }
+
+
+
+
+        public bool checkTerm()
+        {
+
+            Token_Class tmp = TokenStream[InputPointer].token_type;
+
+
+
+            if(tmp == Token_Class.Number || (tmp == Token_Class.Idenifier && true && TokenStream[InputPointer + 1].token_type == Token_Class.LParanthesis) ||
+                tmp == Token_Class.Idenifier)
+            {
+                return true;
+            }
+
+
+
+
+            return false;
+        }
+
+
+
+        //================================================Helper Functions End====================================================
         Node Program()
         {
             // completed
@@ -213,10 +266,7 @@ namespace Tiny_Compiler
                 statement.Children.Add(Function_call());
 
             }
-            else 
-            {
-                Flag.isStaement = false;
-            }
+           
 
             return statement;
         }
@@ -226,7 +276,7 @@ namespace Tiny_Compiler
             // Statements’ → Statement Statements’ | 𝜀
             Node statementsDash = new Node("StatementsDash");
 
-            if(Flag.isStaement == true)
+            if(checkStatment() == true)
             {
 
                 statementsDash.Children.Add(Statement());
@@ -306,10 +356,19 @@ namespace Tiny_Compiler
         {
             // Expression → stringLine | Term | Equation
             Node expression = new Node("Expression");
-            
-            expression.Children.Add(match(Token_Class.String));
-            expression.Children.Add(Term());
-            expression.Children.Add(Equation());
+            if(TokenStream[InputPointer].token_type == Token_Class.StringLine)
+            {
+                expression.Children.Add(match(Token_Class.StringLine));
+
+            }else if(checkTerm() == true)
+            {
+                expression.Children.Add(Term());
+
+            }else
+            {
+                expression.Children.Add(Equation());
+            }
+
 
             return expression;
         }
