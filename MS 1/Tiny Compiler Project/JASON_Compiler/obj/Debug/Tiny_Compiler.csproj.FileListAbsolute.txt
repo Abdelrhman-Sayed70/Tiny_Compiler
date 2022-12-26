@@ -56,3 +56,15 @@ D:\Projects Hosted on Git hup\Compiler_Project\MS1\Tiny Compiler Project\JASON_C
 D:\Projects Hosted on Git hup\Compiler_Project\MS1\Tiny Compiler Project\JASON_Compiler\obj\Debug\JASON_Compiler.pdb
 D:\Projects Hosted on Git hup\Compiler_Project\Tiny Compiler Project\JASON_Compiler\obj\Debug\Tiny_Compiler.Form2.resources
 >>>>>>>> 15fe007e642c5cdb64ee00e094a9fe89087d3f2f:Tiny Compiler Project/JASON_Compiler/obj/Debug/Tiny_Compiler.csproj.FileListAbsolute.txt
+C:\Compiler_Project\MS 1\Tiny Compiler Project\JASON_Compiler\obj\Debug\Tiny_Compiler.csproj.AssemblyReference.cache
+C:\Compiler_Project\MS 1\Tiny Compiler Project\JASON_Compiler\obj\Debug\Tiny_Compiler.csproj.SuggestedBindingRedirects.cache
+C:\Compiler_Project\MS 1\Tiny Compiler Project\JASON_Compiler\obj\Debug\Tiny_Compiler.Form1.resources
+C:\Compiler_Project\MS 1\Tiny Compiler Project\JASON_Compiler\obj\Debug\JASON_Compiler.Form2.resources
+C:\Compiler_Project\MS 1\Tiny Compiler Project\JASON_Compiler\obj\Debug\JASON_Compiler.Properties.Resources.resources
+C:\Compiler_Project\MS 1\Tiny Compiler Project\JASON_Compiler\obj\Debug\Tiny_Compiler.csproj.GenerateResource.cache
+C:\Compiler_Project\MS 1\Tiny Compiler Project\JASON_Compiler\obj\Debug\Tiny_Compiler.csproj.CoreCompileInputs.cache
+C:\Compiler_Project\MS 1\Tiny Compiler Project\JASON_Compiler\obj\Debug\JASON_Compiler.exe
+C:\Compiler_Project\MS 1\Tiny Compiler Project\JASON_Compiler\obj\Debug\JASON_Compiler.pdb
+C:\Compiler_Project\MS 1\Tiny Compiler Project\JASON_Compiler\bin\Debug\JASON_Compiler.exe.config
+C:\Compiler_Project\MS 1\Tiny Compiler Project\JASON_Compiler\bin\Debug\JASON_Compiler.exe
+C:\Compiler_Project\MS 1\Tiny Compiler Project\JASON_Compiler\bin\Debug\JASON_Compiler.pdb

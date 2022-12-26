@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 public enum Token_Class
 {
-    Main, Int, Float, String, Read, Write, Repeat, Until, If, Elseif, Else, Then, Return, Endl,
+    Main, Int, Float, String, Read, Write, Repeat, Until, If, Elseif, Else, Then, Return, Endl,End,
     Colon, And, Or, Dot, Semicolon, Comma, LParanthesis, RParanthesis, AssignmentOp, NotEqualOp, ConditionEqualOp, LessThanOp, GreaterThanOp,
-    PlusOp, MinusOp, MultiplyOp, DivideOp, Idenifier, IntNumber, FloatNumber, Number, LPracket, RPracket
+    PlusOp, MinusOp, MultiplyOp, DivideOp, Idenifier, IntNumber, FloatNumber, Number, LPracket, RPracket, StringLine
 }
 namespace Tiny_Compiler
 {
@@ -43,6 +43,7 @@ namespace Tiny_Compiler
             ReservedWords.Add("then", Token_Class.Then);
             ReservedWords.Add("return", Token_Class.Return);
             ReservedWords.Add("endl", Token_Class.Endl);
+            ReservedWords.Add("end", Token_Class.End);
             ReservedWords.Add(";", Token_Class.Semicolon);
 
 
@@ -144,18 +145,30 @@ namespace Tiny_Compiler
                     j++;
                     CurrentChar = SourceCode[j];
                     CurrentLexeme += CurrentChar.ToString();
+                    bool isError = false;
                     while (CurrentChar != '\"')
                     {
+
+
                         // "abc"
                         if (j == SourceCode.Length - 1)
                         {
                             FindTokenClass(CurrentLexeme);
+                            isError = true;
                             break;
                         }
                         j++;
                         CurrentChar = SourceCode[j];
                         CurrentLexeme += CurrentChar.ToString();
                     }
+
+                    if(isError == false)
+                    {
+                        FindTokenClass(CurrentLexeme);
+                    }
+
+                    
+
                     i = j;
                 }
 
@@ -319,6 +332,14 @@ namespace Tiny_Compiler
                 Tokens.Add(Tok);
             }
 
+
+            // Is it a String
+            else if(isString(Lex))
+            {
+                Tok.token_type = Token_Class.StringLine;
+                Tokens.Add(Tok);
+            }
+
          
 
             // Is it an undefined?
@@ -353,7 +374,16 @@ namespace Tiny_Compiler
         {
             var regexFloat = new Regex(@"^[0-9]+(\.[0-9]+)$", RegexOptions.Compiled);
             bool isValid = regexFloat.IsMatch(lex);
+            return isValid; 
+        }
+
+
+        bool isString(string lex)
+        {
+            var regexString = new Regex("([^\"]*)", RegexOptions.Compiled);
+            bool isValid = regexString.IsMatch(lex);
             return isValid;
+
         }
     }
 }

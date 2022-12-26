@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace JASON_Compiler
 {
+    /*
     public partial class Form2 : Form
     {
         public Form2()
@@ -22,4 +23,6 @@ namespace JASON_Compiler
 
         }
     }
+
+    */
 }

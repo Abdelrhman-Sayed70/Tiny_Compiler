@@ -1,5 +1,5 @@
-﻿namespace JASON_Compiler
-{
+﻿namespace Tiny_Compiler
+{/*
     partial class Form2
     {
         /// <summary>
@@ -195,4 +195,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
     }
+
+    */
 }
