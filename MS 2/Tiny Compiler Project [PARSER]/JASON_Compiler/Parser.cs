@@ -76,9 +76,10 @@ namespace Tiny_Compiler
 
             Token_Class tmp = TokenStream[InputPointer].token_type;
 
+            Token_Class tmp2 = TokenStream[InputPointer + 1].token_type;
             if (tmp == Token_Class.Read || tmp == Token_Class.Write ||
-                tmp == Token_Class.AssignmentOp || tmp == Token_Class.Int ||
-                tmp == Token_Class.Float || tmp == Token_Class.String || tmp == Token_Class.If || tmp == Token_Class.Repeat || tmp == Token_Class.LPracket)
+                tmp2 == Token_Class.AssignmentOp || tmp == Token_Class.Int ||
+                tmp == Token_Class.Float || tmp == Token_Class.String || tmp == Token_Class.If || tmp == Token_Class.Repeat || tmp2 == Token_Class.LPracket)
             {
                 return true;
             }
