@@ -1,4 +1,3 @@
-
 # NOTES
 
 ## In case of attention in priority of mathematical operations [+ / * -] we use those procedures
