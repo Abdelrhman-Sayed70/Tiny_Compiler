@@ -63,7 +63,7 @@ namespace Tiny_Compiler
             Operators.Add("-", Token_Class.MinusOp);
             Operators.Add("*", Token_Class.MultiplyOp);
             Operators.Add("/", Token_Class.DivideOp);
-            
+
         }
 
         public void StartScanning(string SourceCode)
@@ -364,8 +364,6 @@ namespace Tiny_Compiler
             return isValid;
         }
 
-
-
         bool isString(string lex)
         {
             var regexString = new Regex("\"(^\")\"", RegexOptions.Compiled);
@@ -373,7 +371,6 @@ namespace Tiny_Compiler
             return isValid;
 
         }
-
 
     }
 }
