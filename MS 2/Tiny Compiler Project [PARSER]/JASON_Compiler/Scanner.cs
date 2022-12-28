@@ -9,7 +9,7 @@ public enum Token_Class
 {
     Main, Int, Float, String, Read, Write, Repeat, Until, If, Elseif, Else, Then, Return, Endl,End,
     Colon, And, Or, Dot, Semicolon, Comma, LParanthesis, RParanthesis, AssignmentOp, NotEqualOp, ConditionEqualOp, LessThanOp, GreaterThanOp,
-    PlusOp, MinusOp, MultiplyOp, DivideOp, Idenifier, IntNumber, FloatNumber, Number, LPracket, RPracket, StringLine
+    PlusOp, MinusOp, MultiplyOp, DivideOp, Idenifier, IntNumber, FloatNumber, Number, LPracket, RPracket, StringLine, DataType
 }
 namespace Tiny_Compiler
 {

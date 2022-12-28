@@ -39,7 +39,7 @@ namespace Tiny_Compiler
         }
 
 
-        
+
 
 
         // ================================================================================================================
@@ -74,15 +74,18 @@ namespace Tiny_Compiler
 
         public bool checkStatment()
         {
-
-
+            if (Flag.isOfr == true) { return false; }
 
             Token_Class tmp = TokenStream[InputPointer].token_type;
-
+            if (InputPointer + 1 >= TokenStream.Count)
+            {
+                return false;
+            }
             Token_Class tmp2 = TokenStream[InputPointer + 1].token_type;
+
             if (tmp == Token_Class.Read || tmp == Token_Class.Write ||
                 tmp2 == Token_Class.AssignmentOp || tmp == Token_Class.Int ||
-                tmp == Token_Class.Float || tmp == Token_Class.String || tmp == Token_Class.If || tmp == Token_Class.Repeat || tmp2 == Token_Class.LPracket)
+                tmp == Token_Class.Float || tmp == Token_Class.String || tmp == Token_Class.If || tmp == Token_Class.Repeat || tmp2 == Token_Class.LParanthesis)
             {
                 return true;
             }
@@ -93,6 +96,7 @@ namespace Tiny_Compiler
 
         public bool checkTerm()
         {
+            if (Flag.isOfr == true) { return false; }
 
             Token_Class tmp = TokenStream[InputPointer].token_type;
 
@@ -112,7 +116,7 @@ namespace Tiny_Compiler
 
         public bool checkEquation()
         {
-
+            if (Flag.isOfr == true) { return false; }
             Token_Class tmp = TokenStream[InputPointer].token_type;
 
 
@@ -172,19 +176,19 @@ namespace Tiny_Compiler
             // Function_statement → Function_declaration Function_body | 𝜀
 
             if (Flag.isOfr == true) { return null; }
-           
+
 
 
             Node function_statement = new Node("Function_statement");
-            
-            
+
+
 
             if ((InputPointer + 1 >= TokenStream.Count && (TokenStream[InputPointer].token_type == Token_Class.Int || TokenStream[InputPointer].token_type == Token_Class.Float) || TokenStream[InputPointer].token_type == Token_Class.String) || (TokenStream[InputPointer].token_type == Token_Class.Int && TokenStream[InputPointer + 1].token_type != Token_Class.Main) || (TokenStream[InputPointer].token_type == Token_Class.Float && TokenStream[InputPointer + 1].token_type != Token_Class.Main) || (TokenStream[InputPointer].token_type == Token_Class.String && TokenStream[InputPointer + 1].token_type != Token_Class.Main))
             {
 
 
 
-                if (InputPointer + 1 >= TokenStream.Count && ( TokenStream[InputPointer].token_type == Token_Class.Int || TokenStream[InputPointer].token_type == Token_Class.Float) || TokenStream[InputPointer].token_type == Token_Class.String) { Flag.isSpecial = true; }
+                if (InputPointer + 1 >= TokenStream.Count && (TokenStream[InputPointer].token_type == Token_Class.Int || TokenStream[InputPointer].token_type == Token_Class.Float) || TokenStream[InputPointer].token_type == Token_Class.String) { Flag.isSpecial = true; }
 
 
                 function_statement.Children.Add(Function_declaration());
@@ -255,7 +259,14 @@ namespace Tiny_Compiler
             // completed
             // Main_function → Datatype main() Function_body
 
-            if (Flag.isOfr == true) { return null; }
+            if (Flag.isOfr == true) {
+
+                match(Token_Class.Int);
+                match(Token_Class.Main);
+
+                return null;
+            
+            }
 
 
             Node main_function = new Node("Main_function");
@@ -280,6 +291,11 @@ namespace Tiny_Compiler
             {
                 datatype.Children.Add(match(TokenStream[InputPointer].token_type));
             }
+            else
+            {
+                datatype.Children.Add(match(Token_Class.DataType));
+            }
+
             return datatype;
         }
 
@@ -329,7 +345,7 @@ namespace Tiny_Compiler
             {
                 statement.Children.Add(Read_statement());
             }
-            else if (TokenStream[InputPointer + 1].token_type == Token_Class.AssignmentOp)
+            else if (TokenStream[InputPointer].token_type == Token_Class.Idenifier && TokenStream[InputPointer + 1].token_type == Token_Class.AssignmentOp)
             {
                 statement.Children.Add(Assignment_statement());
             }
@@ -348,7 +364,7 @@ namespace Tiny_Compiler
                 statement.Children.Add(Repeat_statement());
 
             }
-            else if (TokenStream[InputPointer + 1].token_type == Token_Class.LPracket) // ***
+            else if (TokenStream[InputPointer].token_type == Token_Class.Idenifier && TokenStream[InputPointer + 1].token_type == Token_Class.LParanthesis) // ***
             {
                 statement.Children.Add(Function_call());
 
@@ -386,7 +402,13 @@ namespace Tiny_Compiler
             // Return_statement → return Expression ;
 
 
-            if (Flag.isOfr == true) { return null; }
+            if (Flag.isOfr == true)
+            {
+                match(Token_Class.Return);
+
+
+                return null;
+            }
 
 
 
@@ -403,7 +425,11 @@ namespace Tiny_Compiler
             // Ret_statement → Return_statement | 𝜀
 
 
-            if (Flag.isOfr == true) { return null; }
+            if (Flag.isOfr == true) 
+            {
+
+                return null;
+            }
 
 
             Node ret_statement = new Node("Ret_statement");
@@ -831,7 +857,6 @@ namespace Tiny_Compiler
             {
                 else_statement.Children.Add(match(Token_Class.Else));
                 else_statement.Children.Add(Statements());
-                else_statement.Children.Add(match(Token_Class.End));
                 return else_statement;
             }
             else
@@ -858,7 +883,6 @@ namespace Tiny_Compiler
                 else_if_statement.Children.Add(Statements());
                 else_if_statement.Children.Add(Ret_statement());
                 else_if_statement.Children.Add(Else_statement());
-                else_if_statement.Children.Add(match(Token_Class.End));
                 return else_if_statement;
             }
             else
@@ -917,7 +941,7 @@ namespace Tiny_Compiler
             Node parameter = new Node("Parameter");
             if (InputPointer < TokenStream.Count)
             {
-                if (TokenStream[InputPointer].token_type == Token_Class.Int || TokenStream[InputPointer].token_type == Token_Class.Float || TokenStream[InputPointer].token_type == Token_Class.String)
+              if (TokenStream[InputPointer].token_type == Token_Class.Int || TokenStream[InputPointer].token_type == Token_Class.Float || TokenStream[InputPointer].token_type == Token_Class.String)
                 {
                     parameter.Children.Add(Datatype());
                     parameter.Children.Add(match(Token_Class.Idenifier));
@@ -978,10 +1002,11 @@ namespace Tiny_Compiler
         // ============================================== Ruq end =========================================================
         // ================================================================================================================
         // match : deal with tokens 
+
         public Node match(Token_Class ExpectedToken)
         {
 
-            if (Flag.isOfr == true && Flag.isSpecial == false) { return null; }
+           // if (Flag.isOfr == true && Flag.isSpecial == false) { return null; }
 
             if (InputPointer < TokenStream.Count)
             {
@@ -996,6 +1021,7 @@ namespace Tiny_Compiler
 
 
                     Node newNode = new Node(ExpectedToken.ToString());
+
                     return newNode;
                 }
 
@@ -1009,13 +1035,13 @@ namespace Tiny_Compiler
 
                     if (InputPointer >= TokenStream.Count)
                     {
-                       Flag.isOfr = true;
+                        Flag.isOfr = true;
 
                     }
 
-                   
 
-                    
+
+
 
                     return null;
                 }
@@ -1025,8 +1051,6 @@ namespace Tiny_Compiler
                 Errors.Error_List.Add("Parsing Error: Expected "
                         + ExpectedToken.ToString() + "\r\n");
                 InputPointer++;
-
-              
 
                 if (Flag.isSpecial == true) { Flag.isSpecial = false; }
 
