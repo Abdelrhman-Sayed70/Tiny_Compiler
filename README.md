@@ -59,7 +59,7 @@ return 0;
 
 [Language Description ](https://docs.google.com/document/d/1rd-Iqtm3JDBO_DAZKorV52IVK1Zz7W6q/edit#)
 
-# Team members 
+# Developers 
 - [Abdelrhman Sayed](https://github.com/Abdelrhman-Sayed70)
 - [Ruqaiyah Alarabi](https://github.com/25Ruq) 
 - [Nour Ayman](https://github.com/NourAyman10)
